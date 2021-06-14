@@ -1,0 +1,53 @@
+{% extends "template.html" %}
+{% block content %}
+<div>
+  <form action="{{ url_for('copping_pass') }}" method="post">
+    <fieldset>
+          <div class="mb-3">
+            <label for="description" class="form-label">Descrição:</label>
+            <textarea id="description" name="description" class="form-control" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="limit_time" class="form-label">Tempo Limite (horas):</label>
+            <input type="number" id="limit_time" name="limit_time" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="limit_access" class="form-label">Limite de acessos:</label>
+            <input type="number" id="limit_access" name="limit_access" class="form-control" required>
+          </div>
+          <div class="mb-3">
+              <label for="total_characters" class="form-label">Quantidade de Caracteres:</label>
+              <input type="number" id="total_characters" name="total_characters" class="form-control">
+          </div>
+          <div class="mb-3">
+              <div class="mb-3">
+                <label for="have_strings" class="form-label">Letras:</label>
+                  <select id="have_strings" name="have_strings" class="form-select">
+                      <optgroup label="sim">
+                          <option value="1" selected>Minúsculas</option>
+                          <option value="2" selected>Maiúsculas</option>
+                          <option value="3" selected>Todas</option>
+                      </optgroup>
+                      <option value="0" selected>Não</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                  <label for="have_numbers" class="form-label">Números na Senha</label>
+                  <select id="have_numbers" name="have_numbers" class="form-select">
+                      <option value="True">Sim</option>
+                      <option value="False" selected>Não</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                  <label for="have_special_characters" class="form-label">Caracteres Especiais na Senha</label>
+                  <select id="have_special_characters" name="have_special_characters" class="form-select">
+                      <option value="True">Sim</option>
+                      <option value="False" selected>Não</option>
+                  </select>
+              </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+        </fieldset>
+  </form>
+</div>
+{% endblock %}
